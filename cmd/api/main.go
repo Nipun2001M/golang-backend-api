@@ -1,10 +1,13 @@
 package main
 
-import "log"
+import (
+	"log"
+)
+import "github.com/Nipun2001M/golang-backend-api/internal/env"
 
 func main() {
 	cfg := config{
-		addresss: ":8080",
+		addresss: env.GetString("ADDR", ":8080"),
 	}
 
 	app := appication{

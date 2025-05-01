@@ -5,7 +5,6 @@ import (
 	"log"
 	"os"
 	"strconv"
-	//"strconv"
 )
 
 func GetString(key string, fallback string) string {

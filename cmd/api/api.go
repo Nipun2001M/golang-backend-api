@@ -1,6 +1,7 @@
 package main
 
 import (
+	"github.com/Nipun2001M/golang-backend-api/internal/store"
 	"github.com/go-chi/chi/v5"
 	"github.com/go-chi/chi/v5/middleware"
 	"log"
@@ -10,10 +11,19 @@ import (
 
 type appication struct {
 	config config
+	store  store.Storage
 }
 
 type config struct {
 	addresss string
+	db       dbConfig
+}
+
+type dbConfig struct {
+	addr        string
+	maxOpenConn int
+	maxIdleConn int
+	maxIdletime string
 }
 
 func (app *appication) mount() *chi.Mux {
